@@ -1,10 +1,17 @@
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
-        freq = {}
+        # By using arrays
+        # freq = {}      
 
+        # for i in nums:
+        #     freq[i] = freq.get(i, 0) + 1
+
+        # for i in freq:
+        #     if freq[i] == 1:
+        #         return i
+
+        # By using Bit Manipulations
+        result = 0
         for i in nums:
-            freq[i] = freq.get(i, 0) + 1
-
-        for i in freq:
-            if freq[i] == 1:
-                return i
+            result ^= i 
+        return result
