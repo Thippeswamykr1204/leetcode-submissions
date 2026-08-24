@@ -1,0 +1,12 @@
+class Solution:
+    def firstUniqChar(self, s: str) -> int:
+        cc = {}
+
+        for char in s:
+            cc[char] = cc.get(char, 0) + 1
+
+        for i, char in enumerate(s):
+            if cc[char] == 1:
+                return i 
+
+        return -1
