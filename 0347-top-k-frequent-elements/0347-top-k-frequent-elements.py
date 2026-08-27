@@ -1,10 +1,9 @@
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        freq = []
-        unique_ele = list(set(nums))
+        freq = {}
 
-        for num in unique_ele:
-            freq.append((num, nums.count(num)))
-        freq.sort(key = lambda X:X[1], reverse=True)
+        for num in nums:
+            freq[num] = freq.get(num, 0) + 1
+        sorted_ele = sorted(freq.items(), key = lambda x:x[1], reverse=True)
 
-        return [freq[i][0] for i in range(k)]
+        return [sorted_ele[i][0] for i in range(k)]
